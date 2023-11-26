@@ -37,7 +37,6 @@ type Model struct {
 	MaxSelections     int
 	HideHelp          bool
 	PerPage           int
-	err               error
 	cursor            int
 	paginator         paginator.Model
 	help              help.Model
@@ -193,7 +192,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m *Model) SelectedIndexes() []int {
 	indexes := make([]int, 0)
-	for idx, _ := range m.selected {
+	for idx := range m.selected {
 		indexes = append(indexes, idx)
 	}
 	sort.Ints(indexes)
