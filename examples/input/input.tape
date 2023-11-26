@@ -1,4 +1,5 @@
 Output input.gif
+Output input.ascii
 
 Set Margin 20
 Set MarginFill "#674EFF"

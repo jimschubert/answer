@@ -146,7 +146,7 @@ func (m *Model) View() string {
 	if m.err != nil {
 		b.WriteRune('\n')
 		b.WriteString(m.Styles.ErrorPrefix.Inline(true).Render("✘"))
-		b.WriteString(m.Styles.Placeholder.Inline(true).Render(": " + m.err.Error() + "\n"))
+		b.WriteString(m.Styles.Placeholder.Inline(true).Render(" " + m.err.Error() + "\n"))
 	}
 	return b.String()
 }
