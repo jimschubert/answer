@@ -132,6 +132,7 @@ func (m *Model) View() string {
 	}
 
 	if m.done {
+		// rather than clearing the program output, we want to show the question + answer just as AlecAivazis/survey did
 		if m.Prompt != "" {
 			b.WriteString(m.Styles.Prompt.Inline(true).Render(m.Prompt))
 			b.WriteRune(' ')

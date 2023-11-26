@@ -35,6 +35,8 @@ type Model struct {
 	Choices           []string
 	KeyMap            KeyMap
 	MaxSelections     int
+	HideHelp          bool
+	PerPage           int
 	err               error
 	cursor            int
 	paginator         paginator.Model
@@ -125,7 +127,11 @@ func (m *Model) setup() {
 
 	paginate := paginator.New()
 	paginate.Type = paginator.Dots
-	paginate.PerPage = 10
+	if m.PerPage < 1 {
+		paginate.PerPage = 10
+	} else {
+		paginate.PerPage = m.PerPage
+	}
 	paginate.ActiveDot = lipgloss.NewStyle().Foreground(lipgloss.AdaptiveColor{Light: "235", Dark: "252"}).Render("•")
 	paginate.InactiveDot = lipgloss.NewStyle().Foreground(lipgloss.AdaptiveColor{Light: "250", Dark: "238"}).Render("•")
 	paginate.KeyMap.NextPage = m.KeyMap.PageNext
@@ -153,6 +159,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		switch {
 		case key.Matches(msg, m.KeyMap.Quit, m.KeyMap.Enter):
+			m.HideHelp = true
 			return m, tea.Quit
 		case key.Matches(msg, m.KeyMap.SelectionUp):
 			if m.cursor > 0 {
@@ -238,9 +245,11 @@ func (m *Model) View() string {
 		b.WriteString("\n")
 	}
 	b.WriteString("  " + m.paginator.View())
-	helpView := m.help.View(m.KeyMap)
-	b.WriteString("\n\n")
-	b.WriteString(helpView)
+	if !m.HideHelp {
+		helpView := m.help.View(m.KeyMap)
+		b.WriteString("\n\n")
+		b.WriteString(helpView)
+	}
 	b.WriteString("\n")
 	return b.String()
 }
