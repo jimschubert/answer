@@ -1,7 +1,6 @@
 package input
 
 import (
-	"bytes"
 	"strings"
 
 	"github.com/charmbracelet/bubbles/textinput"
@@ -60,6 +59,9 @@ func (m *Model) setup() {
 		m.Validate = func(input string) error {
 			return nil
 		}
+	}
+	if m.Prompt == "" {
+		m.Prompt = "Please enter:"
 	}
 	input := textinput.New()
 	input.CharLimit = m.CharLimit
@@ -121,29 +123,29 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m *Model) View() string {
-	buf := bytes.Buffer{}
+	var b strings.Builder
 	if m.PromptPrefix != "" {
-		buf.WriteString(m.Styles.PromptPrefix.Render(m.PromptPrefix))
+		b.WriteString(m.Styles.PromptPrefix.Inline(true).Render(m.PromptPrefix))
 		if m.Prompt != "" && !strings.HasSuffix(m.PromptPrefix, " ") {
-			buf.WriteRune(' ')
+			b.WriteRune(' ')
 		}
 	}
 
 	if m.done {
 		if m.Prompt != "" {
-			buf.WriteString(m.Styles.Prompt.Render(m.Prompt))
-			buf.WriteRune(' ')
+			b.WriteString(m.Styles.Prompt.Inline(true).Render(m.Prompt))
+			b.WriteRune(' ')
 		}
-		buf.WriteString(m.input.Value())
-		buf.WriteRune('\n')
-		return buf.String()
+		b.WriteString(m.input.Value())
+		b.WriteRune('\n')
+		return b.String()
 	}
 
-	buf.WriteString(m.input.View())
+	b.WriteString(m.input.View())
 	if m.err != nil {
-		buf.WriteRune('\n')
-		buf.WriteString(m.Styles.ErrorPrefix.Render("✘"))
-		buf.WriteString(m.Styles.Placeholder.Render(": " + m.err.Error() + "\n"))
+		b.WriteRune('\n')
+		b.WriteString(m.Styles.ErrorPrefix.Inline(true).Render("✘"))
+		b.WriteString(m.Styles.Placeholder.Inline(true).Render(": " + m.err.Error() + "\n"))
 	}
-	return buf.String()
+	return b.String()
 }
