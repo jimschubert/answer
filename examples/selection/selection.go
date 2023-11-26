@@ -15,6 +15,7 @@ func main() {
 	m := selection.New()
 	m.Prompt = "Please select your three favorite letters:"
 	m.MaxSelections = 3
+	m.PerPage = 6
 	m.ChooserIndicator = '✎'
 	m.Styles.Text = lipgloss.NewStyle().Foreground(lipgloss.AdaptiveColor{Light: colors.TextLight, Dark: colors.TextDark})
 	choices := make([]string, 0)
