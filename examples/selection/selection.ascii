@@ -1,0 +1,1033 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+↑/k move up      ? toggle help
+↓/j move down    q quit
+←/h prev page
+→/l next page
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+↑/k move up      ? toggle help
+↓/j move down    q quit
+←/h prev page
+→/l next page
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] M
+  [ ] N
+  [ ] O
+  [ ] P
+  [ ] Q
+  [ ] R
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] M
+  [ ] N
+  [ ] O
+  [ ] P
+  [ ] Q
+  [ ] R
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+✎ [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+✎ [ ] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+✎ [x] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+✎ [x] C
+  [ ] D
+  [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+✎ [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+✎ [ ] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+✎ [x] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+✎ [x] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [ ] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [ ] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [x] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [x] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [x] J
+✎ [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [x] J
+✎ [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [x] J
+✎ [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [x] J
+✎ [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [x] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [x] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [ ] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+✎ [ ] J
+  [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+✎ [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+✎ [ ] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+✎ [x] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+  [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+✎ [x] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+  [x] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+  [x] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+  [x] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] G
+  [ ] H
+  [ ] I
+  [ ] J
+  [x] K
+  [ ] L
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+  [x] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+  [x] E
+  [ ] F
+  •••••
+
+? toggle help • q quit
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+  [x] E
+  [ ] F
+  •••••
+You selected: [C E K]
+>
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./selection-example
+? Please select your three favorite letters:
+
+✎ [ ] A
+  [ ] B
+  [x] C
+  [ ] D
+  [x] E
+  [ ] F
+  •••••
+You selected: [C E K]
+>
+
+
+
+────────────────────────────────────────────────────────────────────────────────
