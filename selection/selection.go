@@ -177,9 +177,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			if _, ok := m.selected[idx]; ok {
 				delete(m.selected, idx)
 			} else {
-				if m.MaxSelections > 0 && len(m.selected) < m.MaxSelections {
-					m.selected[idx] = struct{}{}
-				}
+				m.selected[idx] = struct{}{}
 			}
 			if m.MaxSelections == 1 {
 				return m, tea.Quit
