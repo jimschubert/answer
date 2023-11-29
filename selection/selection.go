@@ -65,27 +65,28 @@ func (k KeyMap) ShortHelp() []key.Binding {
 // key.Map interface.
 func (k KeyMap) FullHelp() [][]key.Binding {
 	return [][]key.Binding{
-		{k.SelectionUp, k.SelectionDown, k.PagePrev, k.PageNext}, // first column
-		{k.Help, k.Quit}, // second column
+		{k.SelectionUp, k.SelectionDown, k.Select},
+		{k.PagePrev, k.PageNext},
+		{k.Help, k.Quit},
 	}
 }
 
 var DefaultKeyMap = KeyMap{
 	SelectionUp: key.NewBinding(
 		key.WithKeys("k", tea.KeyUp.String()),
-		key.WithHelp("↑/k", "move up"),
+		key.WithHelp("↑/k", "up"),
 	),
 	SelectionDown: key.NewBinding(
 		key.WithKeys("j", tea.KeyDown.String()),
-		key.WithHelp("↓/j", "move down"),
+		key.WithHelp("↓/j", "down"),
 	),
 	PagePrev: key.NewBinding(
 		key.WithKeys("h", tea.KeyLeft.String()),
-		key.WithHelp("←/h", "prev page"),
+		key.WithHelp("←/h", "prev"),
 	),
 	PageNext: key.NewBinding(
 		key.WithKeys("l", tea.KeyRight.String()),
-		key.WithHelp("→/l", "next page"),
+		key.WithHelp("→/l", "next"),
 	),
 	Quit: key.NewBinding(
 		key.WithKeys("q", tea.KeyEsc.String(), tea.KeyCtrlC.String()),
@@ -98,7 +99,7 @@ var DefaultKeyMap = KeyMap{
 	Enter: key.NewBinding(key.WithKeys(tea.KeyEnter.String())),
 	Help: key.NewBinding(
 		key.WithKeys("?"),
-		key.WithHelp("?", "toggle help"),
+		key.WithHelp("?", "help"),
 	),
 }
 
