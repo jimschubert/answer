@@ -150,7 +150,6 @@ func (m *Model) Init() tea.Cmd {
 func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	var cmd tea.Cmd
 	m.paginator, cmd = m.paginator.Update(msg)
-	start, _ := m.paginator.GetSliceBounds(len(m.Choices))
 
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
@@ -174,6 +173,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case key.Matches(msg, m.KeyMap.Help):
 			m.help.ShowAll = !m.help.ShowAll
 		case key.Matches(msg, m.KeyMap.Select):
+			start, _ := m.paginator.GetSliceBounds(len(m.Choices))
 			idx := start + m.cursor
 			if _, ok := m.selected[idx]; ok {
 				delete(m.selected, idx)
