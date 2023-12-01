@@ -1,0 +1,798 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> go build -o confirm-example . && clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> go build -o confirm-example . && clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example
+? Do you like pie? Y/n
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example
+? Do you like pie? n
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example
+? Do you like pie? n
+You chose (n)
+Other decision formatting:
+        m.Selected().YesNoString(): no
+        m.Selected().TrueFalseString(): false
+        m.Selected().String(): denied
+>
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example
+? Do you like pie? n
+You chose (n)
+Other decision formatting:
+        m.Selected().YesNoString(): no
+        m.Selected().TrueFalseString(): false
+        m.Selected().String(): denied
+>
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+? Do you like pie? ➤Yes  No
+←/→ toggle
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+? Do you like pie?  Yes ➤No
+←/→ toggle
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+? Do you like pie?  Yes ➤No
+←/→ toggle
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+? Do you like pie? ➤Yes  No
+←/→ toggle
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+? Do you like pie? ➤Yes  No
+←/→ toggle
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+? Do you like pie? ➤Yes  No
+You chose (Yes)
+Other decision formatting:
+        m.Selected().YesNoString(): yes
+        m.Selected().TrueFalseString(): true
+        m.Selected().String(): accepted
+>
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable
+? Do you like pie? ➤Yes  No
+You chose (Yes)
+Other decision formatting:
+        m.Selected().YesNoString(): yes
+        m.Selected().TrueFalseString(): true
+        m.Selected().String(): accepted
+>
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+➤ Yes
+  No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+➤ Yes
+  No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+  Yes
+➤ No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+  Yes
+➤ No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+➤ Yes
+  No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+➤ Yes
+  No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+  Yes
+➤ No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+  Yes
+➤ No
+↑/↓ toggle
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+  Yes
+➤ No
+You chose (No)
+Other decision formatting:
+        m.Selected().YesNoString(): no
+        m.Selected().TrueFalseString(): false
+        m.Selected().String(): denied
+>
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./confirm-example -selectable -vertical
+? Do you like pie?
+  Yes
+➤ No
+You chose (No)
+Other decision formatting:
+        m.Selected().YesNoString(): no
+        m.Selected().TrueFalseString(): false
+        m.Selected().String(): denied
+>
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────

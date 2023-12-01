@@ -23,43 +23,9 @@ The `input` bubble provides a minimal wrapper around `github.com/charmbracelet/b
 of the upstream textinput bubble, with a little extra "flair" (a prompt prefix character, plus validations). This allows for styling
 more closely to what you might have had with [github.com/AlecAivazis/survey](https://github.com/AlecAivazis/survey).
 
-```go
-package main
+See [internal/examples/input](internal/examples/input):
 
-import (
-	"errors"
-	"fmt"
-	"log"
-	"os"
-	"unicode"
-
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/jimschubert/answer/input"
-)
-
-func main() {
-	m := input.New()
-	m.Prompt = "Please enter your name:"
-	m.Placeholder = "(first name only)"
-	m.Validate = func(v string) error {
-		if v == "" {
-			return nil
-		}
-		if len(v) >= 2 && !unicode.IsUpper(rune(v[0])) {
-			return errors.New("Name must be uppercase")
-		}
-		return nil
-	}
-	p := tea.NewProgram(&m)
-	if _, err := p.Run(); err != nil {
-		log.Fatal(err)
-	}
-
-	_, _ = fmt.Fprintf(os.Stdout, "Hi, %s!\n", m.Value())
-}
-```
-
-![](./examples/input/input.gif)
+![](internal/examples/input/input.gif)
 
 ### selection
 
@@ -67,42 +33,34 @@ The `selection` bubble provides a paginated list of items from which the user ca
 to multi-select, but can be made single-select by setting `MaxSelections` to 1. Styles, as well as indicators for prompt,
 chooser, and selection are customizable.
 
-```go
-package main
+See [internal/examples/selection](internal/examples/selection):
 
-import (
-	"fmt"
-	"log"
-	"os"
+![](internal/examples/selection/selection.gif)
 
-	tea "github.com/charmbracelet/bubbletea"
-	"github.com/charmbracelet/lipgloss"
-	"github.com/jimschubert/answer/colors"
-	"github.com/jimschubert/answer/selection"
-)
+### confirm
 
-func main() {
-	m := selection.New()
-	m.Prompt = "Please select your three favorite letters:"
-	m.MaxSelections = 3
-	m.PerPage = 6
-	m.ChooserIndicator = '✎'
-	m.Styles.Text = lipgloss.NewStyle().Foreground(lipgloss.AdaptiveColor{Light: colors.TextLight, Dark: colors.TextDark})
-	choices := make([]string, 0)
-	for i := 'A'; i <= 'Z'; i++ {
-		choices = append(choices, string(i))
-	}
-	m.Choices = choices
-	p := tea.NewProgram(&m)
-	if _, err := p.Run(); err != nil {
-		log.Fatal(err)
-	}
+The `confirm` bubble provides a yes/no/undecided type of input. This is configurable to show the common terminal usability such as:
 
-	_, _ = fmt.Fprintf(os.Stdout, "You selected: %v\n", m.SelectedValues())
-}
-```
+> ? Do you want to continue? y/N
 
-![](./examples/selection/selection.gif)
+Where the default value is indicated by an uppercase character. In this default rendering display, the user is able to 
+type either `y` or `n` (case insensitive) or hit enter to proceed with the default.
+
+The confirm bubble also supports horizontal and vertical list-style selections.
+
+Horizontal selection could be presented like:
+
+> ? Prompt? ➤Yes  No
+
+Vertical selection could be presented like:
+
+> ? Prompt?
+> ➤ Yes
+>   No
+
+See [internal/examples/confirm](internal/examples/confirm):
+
+![](internal/examples/confirm/confirm.gif)
 
 ## Install
 

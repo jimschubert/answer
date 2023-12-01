@@ -17,6 +17,8 @@ var (
 type ValidateFunc func(input string) error
 
 // Styles holds relevant styles used for rendering
+// For an introduction to styling with Lip Gloss see:
+// https://github.com/charmbracelet/lipgloss
 type Styles struct {
 	PromptPrefix lipgloss.Style
 	Prompt       lipgloss.Style
