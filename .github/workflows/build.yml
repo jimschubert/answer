@@ -26,7 +26,8 @@ jobs:
         with:
           go-version-file: go.mod
 
-      - name: golangci-lint
+      - if: runner.os == 'Linux'
+        name: golangci-lint
         uses: golangci/golangci-lint-action@v3
 
       - name: Build
