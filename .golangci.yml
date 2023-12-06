@@ -68,8 +68,8 @@ linters-settings:
       - io/ioutil.ReadFile
       - io.Copy(*bytes.Buffer)
       - io.Copy(os.Stdout)
-      - (*strings.Builder).WriteString
-      - (*strings.Builder).WriteRune
+      - (*strings.Builder).WriteString(string)
+      - (*strings.Builder).WriteRune(rune)
 
   # Check exhaustiveness of enum switch statements.
   # https://golangci-lint.run/usage/linters/#exhaustive

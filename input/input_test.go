@@ -51,7 +51,7 @@ func TestModel_View(t *testing.T) {
 					Name:        "displays validation message",
 					BeforeType:  "jim",
 					Inputs:      []tea.KeyMsg{},
-					ExpectView:  "? Please enter your name: jim \r\n✘ Name must be uppercase",
+					ExpectView:  "? Please enter your name: jim \r\n✘ name must be uppercase",
 					ExpectValue: "jim",
 				},
 				{

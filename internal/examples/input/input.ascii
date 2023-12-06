@@ -361,7 +361,7 @@
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
 ? Please enter your name: jim
-✘ Name must be uppercase
+✘ name must be uppercase
 
 
 
@@ -377,7 +377,7 @@
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
 ? Please enter your name: jim
-✘ Name must be uppercase
+✘ name must be uppercase
 
 
 
@@ -393,7 +393,7 @@
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
 ? Please enter your name: jim
-✘ Name must be uppercase
+✘ name must be uppercase
 
 
 
