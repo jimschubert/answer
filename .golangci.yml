@@ -1,0 +1,178 @@
+run:
+  concurrency: 4
+  timeout: 10m
+  tests: true
+
+output:
+  sort-results: true
+
+linters:
+  disable-all: true
+  enable:
+    - dogsled
+    - dupl
+    - dupword
+    - errcheck
+    - exhaustive
+    - gofmt
+    - govet
+    - gocyclo
+    - staticcheck
+    - stylecheck
+    - thelper
+    - tparallel
+    - typecheck
+
+linters-settings:
+  # Checks assignments with too many blank identifiers (e.g. x, , , _, := f()).
+  # https://golangci-lint.run/usage/linters/#dogsled
+  dogsled:
+    # Checks assignments with too many blank identifiers.
+    max-blank-identifiers: 3
+
+  # Tool for code clone detection.
+  # https://golangci-lint.run/usage/linters/#dupl
+  dupl:
+    # Tokens count to trigger issue.
+    threshold: 100
+
+  # Checks for duplicate words in the source code.
+  # https://golangci-lint.run/usage/linters/#dupword
+  dupword:
+    # Keywords for detecting duplicate words.
+    # If this list is not empty, only the words defined in this list will be detected.
+    keywords:
+      - "the"
+      - "and"
+      - "a"
+    # Keywords used to ignore detection.
+    ignore: []
+
+  # Errcheck is a program for checking for unchecked errors in Go code. These unchecked errors can be critical bugs in some cases.
+  # https://golangci-lint.run/usage/linters/#errcheck
+  errcheck:
+    # Report about not checking of errors in type assertions: `a := b.(MyStruct)`.
+    # Such cases aren't reported by default.
+    check-type-assertions: true
+    # report about assignment of errors to blank identifier: `num, _ := strconv.Atoi(numStr)`.
+    # Such cases aren't reported by default.
+    check-blank: true
+
+    # To disable the errcheck built-in exclude list.
+    # See `-excludeonly` option in https://github.com/kisielk/errcheck#excluding-functions for details.
+    disable-default-exclusions: true
+
+    # List of functions to exclude from checking, where each entry is a single function to exclude.
+    # See https://github.com/kisielk/errcheck#excluding-functions for details.
+    exclude-functions:
+      - io/ioutil.ReadFile
+      - io.Copy(*bytes.Buffer)
+      - io.Copy(os.Stdout)
+      - (*strings.Builder).WriteString
+      - (*strings.Builder).WriteRune
+
+  # Check exhaustiveness of enum switch statements.
+  # https://golangci-lint.run/usage/linters/#exhaustive
+  exhaustive:
+    # Program elements to check for exhaustiveness.
+    check:
+      - switch
+      - map
+    # Check switch statements in generated files also.
+    check-generated: true
+    # Presence of "default" case in switch statements satisfies exhaustiveness, even if all enum members are not listed.
+    default-signifies-exhaustive: true
+    # Enum members matching the supplied regex do not have to be listed in switch statements to satisfy exhaustiveness.
+    ignore-enum-members: "Example.+"
+    # Enum types matching the supplied regex do not have to be listed in switch statements to satisfy exhaustiveness.
+    ignore-enum-types: "Example.+"
+    # Consider enums only in package scopes, not in inner scopes.
+    package-scope-only: true
+    # Only run exhaustive check on switches with "//exhaustive:enforce" comment.
+    explicit-exhaustive-switch: false
+    # Only run exhaustive check on map literals with "//exhaustive:enforce" comment.
+    explicit-exhaustive-map: true
+
+  # Forbids identifiers.
+  # https://golangci-lint.run/usage/linters/#forbidigo
+  forbidigo:
+    forbid:
+      # Builtin function:
+      - p: ^print.*$
+        msg: Do not commit print statements.
+
+  # https://golangci-lint.run/usage/linters/#gocyclo
+  gocyclo:
+    # Minimal code complexity to report.
+    min-complexity: 25
+
+  # https://golangci-lint.run/usage/linters/#gofmt
+  gofmt:
+    simplify: false
+    rewrite-rules:
+      - pattern: 'interface{}'
+        replacement: 'any'
+      - pattern: 'a[b:len(a)]'
+        replacement: 'a[b:]'
+      - pattern: 'make(map[a]b, 0)'
+        replacement: 'make(map[a]b)'
+      - pattern: 'make([]a)'
+        replacement: 'make([]a, 0)'
+
+  # https://golangci-lint.run/usage/linters/#stylecheck
+  stylecheck:
+    checks: ["all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022"]
+    dot-import-whitelist:
+      - mimic
+    # https://staticcheck.io/docs/configuration/options/#initialisms
+    initialisms:
+      - API
+      - ASCII
+      - DB
+      - EOF
+      - GUID
+      - HTML
+      - HTTP
+      - HTTPS
+      - ID
+      - JSON
+      - UI
+      - URI
+      - URL
+      - UUID
+      - XML
+
+  # https://golangci-lint.run/usage/linters/#govet
+  govet:
+    check-shadowing: true
+    settings:
+      shadow:
+        # Whether to be strict about shadowing; can be noisy.
+        strict: true
+    disable-all: true
+    enable:
+      - assign
+      - bools
+      - buildtag
+      - printf
+      - structtag
+      - tests
+      - unmarshal
+      - unreachable
+      - unusedresult
+      - unusedwrite
+
+# https://golangci-lint.run/usage/configuration/#issues-configuration
+issues:
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - gofmt
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+        - funlen
+  max-issues-per-linter: 25
+  max-same-issues: 5

@@ -143,6 +143,8 @@ func (m *Model) Value() string {
 		return m.AcceptedDecisionText
 	case Denied:
 		return m.DeniedDecisionText
+	case Undecided:
+		return ""
 	}
 	return ""
 }

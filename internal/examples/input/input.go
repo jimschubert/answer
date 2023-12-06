@@ -20,7 +20,7 @@ func main() {
 			return nil
 		}
 		if len(v) >= 2 && !unicode.IsUpper(rune(v[0])) {
-			return errors.New("Name must be uppercase")
+			return errors.New("name must be uppercase")
 		}
 		return nil
 	}
