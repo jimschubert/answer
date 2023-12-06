@@ -55,9 +55,9 @@ Horizontal selection could be presented like:
 
 Vertical selection could be presented like:
 
-> ? Prompt?
-> ➤ Yes
->   No
+> ? Prompt?  
+> ➤ Yes  
+> &nbsp; &nbsp; No
 
 See [internal/examples/confirm](internal/examples/confirm):
 
