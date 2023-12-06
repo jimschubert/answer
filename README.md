@@ -16,6 +16,7 @@ This library provides the following bubbles:
 
 * `input`: single-line textual input with validations
 * `selection`: multi-selection with optional single-select
+* `confirm`: a yes/no/undecided with multiple visual representations (input, horizontal/vertical selection)
 
 ### input
 
