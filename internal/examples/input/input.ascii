@@ -278,6 +278,59 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ────────────────────────────────────────────────────────────────────────────────
 >
 
@@ -360,7 +413,7 @@
 
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
-? Please enter your name: jim
+? Please enter your name: jam
 ✘ name must be uppercase
 
 
@@ -376,7 +429,7 @@
 
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
-? Please enter your name: jim
+? Please enter your name: jam
 ✘ name must be uppercase
 
 
@@ -392,7 +445,7 @@
 
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
-? Please enter your name: jim
+? Please enter your name: jam
 ✘ name must be uppercase
 
 
@@ -440,27 +493,11 @@
 
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
-? Please enter your name: (first name only)
-
-
-
-
-
-
-
-
-
-
-
-
-
-────────────────────────────────────────────────────────────────────────────────
-> ./input-example
-? Please enter your name: Jim
-
-
-
-
+? Please enter your name: James
+Suggestions:
+Jim
+James
+Jameson
 
 
 
@@ -472,11 +509,11 @@
 
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
-? Please enter your name: Jim
-
-
-
-
+? Please enter your name: James
+Suggestions:
+Jim
+James
+Jameson
 
 
 
@@ -488,8 +525,8 @@
 
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
-? Please enter your name: Jim
-Hi, Jim!
+? Please enter your name: James
+Hi, James!
 >
 
 
@@ -504,8 +541,8 @@ Hi, Jim!
 
 ────────────────────────────────────────────────────────────────────────────────
 > ./input-example
-? Please enter your name: Jim
-Hi, Jim!
+? Please enter your name: James
+Hi, James!
 >
 
 

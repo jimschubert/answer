@@ -10,17 +10,19 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/x/exp/teatest"
+	"github.com/jimschubert/answer/suggest"
 	"github.com/jimschubert/stripansi"
 	"github.com/stretchr/testify/assert"
 )
 
 type state struct {
-	Name        string
-	BeforeType  string
-	Inputs      []tea.KeyMsg
-	AfterType   string
-	ExpectView  string
-	ExpectValue string
+	Name                     string
+	BeforeType               string
+	Inputs                   []tea.KeyMsg
+	AfterType                string
+	ExpectView               string
+	ExpectViewDoesNotContain string
+	ExpectValue              string
 }
 
 func TestModel_View(t *testing.T) {
@@ -64,6 +66,47 @@ func TestModel_View(t *testing.T) {
 				},
 			},
 		},
+
+		{
+			name: "input with suggestions does not persist suggestions on enter",
+			inputModel: func() Model {
+				m := New()
+				m.Prompt = "Please enter your name:"
+				m.Placeholder = "(first name only)"
+				m.Validate = func(v string) error {
+					if v == "" {
+						return nil
+					}
+					if len(v) >= 2 && !unicode.IsUpper(rune(v[0])) {
+						return errors.New("name must be uppercase")
+					}
+					return nil
+				}
+
+				m.Suggest = suggest.LevenshteinDistance([]string{"Jim", "James", "Jameson"},
+					suggest.LevenshteinDistanceMin(0),
+					suggest.LevenshteinDistanceMax(4))
+
+				return m
+			}(),
+			states: []state{
+				{
+					Name:                     "when suggestions are not displayed",
+					BeforeType:               "Ji",
+					Inputs:                   []tea.KeyMsg{},
+					ExpectValue:              "Ji",
+					ExpectViewDoesNotContain: "Suggestions:",
+				},
+				{
+					Name:                     "when suggestions are displayed",
+					BeforeType:               "Jim",
+					Inputs:                   []tea.KeyMsg{{Type: tea.KeyBackspace}, {Type: tea.KeyBackspace}},
+					AfterType:                "ames",
+					ExpectValue:              "James",
+					ExpectViewDoesNotContain: "Suggestions:",
+				},
+			},
+		},
 	}
 
 	for _, tt := range tests {
@@ -93,7 +136,6 @@ func TestModel_View(t *testing.T) {
 					tm.Send(tea.KeyMsg{Type: tea.KeyEnter})
 				} else {
 					tm.Type(s.AfterType)
-					tm.Send(tea.KeyMsg{Type: tea.KeyEnter})
 				}
 
 				time.Sleep(100 * time.Millisecond)
@@ -102,10 +144,14 @@ func TestModel_View(t *testing.T) {
 				}
 
 				out := stripansi.Bytes(readBts(t, tm.FinalOutput(t, teatest.WithFinalTimeout(2*time.Second))))
+				actual := stripansi.Bytes(out)
 
 				if s.ExpectView != "" {
-					actual := stripansi.Bytes(out)
 					assert.Contains(t, string(actual), s.ExpectView)
+				}
+
+				if s.ExpectViewDoesNotContain != "" {
+					assert.NotContainsf(t, string(actual), s.ExpectViewDoesNotContain, "View should not contain %s", s.ExpectViewDoesNotContain)
 				}
 
 				model := tm.FinalModel(t).(*Model)

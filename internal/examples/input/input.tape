@@ -22,13 +22,12 @@ Type "./input-example"
 Set TypingSpeed 650ms
 Enter
 Sleep 750ms
-Type 'jim'
+Type 'jam'
 Sleep 500ms
 Set TypingSpeed 200ms
 Backspace 3
 Sleep 750ms
-Set TypingSpeed 650ms
-Type 'Jim'
+Type@850ms 'James'
 Sleep 250ms
 Enter
 Sleep 2.5s

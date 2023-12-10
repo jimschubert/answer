@@ -13,6 +13,8 @@ var (
 	_ tea.Model = (*Model)(nil)
 )
 
+type suggestions []string
+
 // ValidateFunc determines if the input string is valid, returning nil if valid or an error if invalid
 type ValidateFunc func(input string) error
 
@@ -25,33 +27,39 @@ type Styles struct {
 	ErrorPrefix  lipgloss.Style
 	Text         lipgloss.Style
 	Placeholder  lipgloss.Style
+	Suggestions  lipgloss.Style
 }
 
 // Model represents the bubble tea model for the input
 type Model struct {
-	PromptPrefix string
-	Prompt       string
-	Placeholder  string
-	CharLimit    int
-	MaxWidth     int
-	EchoMode     textinput.EchoMode
-	Validate     ValidateFunc
-	Styles       Styles
-	err          error
-	done         bool
-	input        textinput.Model
-	initialized  bool
+	PromptPrefix     string
+	Prompt           string
+	Placeholder      string
+	CharLimit        int
+	MaxWidth         int
+	EchoMode         textinput.EchoMode
+	Validate         ValidateFunc
+	Styles           Styles
+	Suggest          func(input string) []string
+	SuggestionPrefix string
+	err              error
+	done             bool
+	input            textinput.Model
+	initialized      bool
+	suggestions      []string
 }
 
 // New creates a new model with default settings.
 func New() Model {
 	return Model{
-		PromptPrefix: "? ",
-		CharLimit:    0,
+		PromptPrefix:     "? ",
+		SuggestionPrefix: "Suggestions:",
+		CharLimit:        0,
 		Styles: Styles{
 			PromptPrefix: lipgloss.NewStyle().Foreground(lipgloss.Color(colors.PromptPrefix)),
 			ErrorPrefix:  lipgloss.NewStyle().Foreground(lipgloss.Color(colors.ErrorPrefix)),
 			Placeholder:  lipgloss.NewStyle().Foreground(lipgloss.Color(colors.Placeholder)),
+			Suggestions:  lipgloss.NewStyle().Italic(true).Foreground(lipgloss.Color(colors.Placeholder)),
 		},
 	}
 }
@@ -113,11 +121,30 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 	case error:
 		m.err = msg
+	case suggestions:
+		m.suggestions = msg
 	}
 
 	var cmds []tea.Cmd
+	var before, after string
+	before = m.input.Value()
 	m.input, cmd = m.input.Update(msg)
 	m.err = m.Validate(m.input.Value())
+
+	after = m.input.Value()
+
+	if m.err != nil || after == "" {
+		m.suggestions = m.suggestions[:0]
+	} else if m.err == nil && m.Suggest != nil {
+		if before != after {
+			// asynchronously update the suggestions
+			cmds = append(cmds, func() tea.Msg {
+				search := after
+				result := m.Suggest(search)
+				return suggestions(result)
+			})
+		}
+	}
 
 	cmds = append(cmds, cmd)
 
@@ -149,6 +176,17 @@ func (m *Model) View() string {
 		b.WriteRune('\n')
 		b.WriteString(m.Styles.ErrorPrefix.Inline(true).Render("✘"))
 		b.WriteString(m.Styles.Placeholder.Inline(true).Render(" " + m.err.Error() + "\n"))
+	} else if len(m.suggestions) > 0 {
+		sRender := m.Styles.Suggestions.Render
+		if m.SuggestionPrefix != "" {
+			b.WriteRune('\n')
+			b.WriteString(sRender(m.SuggestionPrefix))
+		}
+		b.WriteRune('\n')
+		for _, suggestion := range m.suggestions {
+			b.WriteString(sRender(suggestion))
+			b.WriteRune('\n')
+		}
 	}
 	return b.String()
 }

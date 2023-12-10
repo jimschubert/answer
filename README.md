@@ -21,12 +21,40 @@ This library provides the following bubbles:
 ### input
 
 The `input` bubble provides a minimal wrapper around `github.com/charmbracelet/bubbles/textinput`. You get all the implementation
-of the upstream textinput bubble, with a little extra "flair" (a prompt prefix character, plus validations). This allows for styling
+of the upstream textinput bubble, with a little extra "flair" (a prompt prefix character, validations, suggestions). This allows for styling and functionality
 more closely to what you might have had with [github.com/AlecAivazis/survey](https://github.com/AlecAivazis/survey).
 
 See [internal/examples/input](internal/examples/input):
 
 ![](internal/examples/input/input.gif)
+
+#### Suggestions
+
+Suggestions can be applied via a set of static data using one of the provided text suggestion functions, or via a custom function allowing retrieval from any location such as an external datasource.
+
+Provided suggestions include `suggest.LevenshteinDistance` and `suggest.StartsWith`, each with customizable options to optimize their behaviors.
+
+To use `suggest.LevenshteinDistance` you can apply in the follow manner:
+
+```go
+	m := input.New()
+	m.Prompt = "Please enter your name:"
+	m.Placeholder = "(first name only)"
+	m.Suggest = suggest.LevenshteinDistance([]string{"Jim", "James", "Jameson"},
+		suggest.LevenshteinDistanceMin(0),
+		suggest.LevenshteinDistanceMax(4))
+```
+
+To use a custom function, match the signature `func(value string) []string`. For example:
+
+```go
+	m := input.New()
+	m.Prompt = "Please enter your name:"
+	m.Placeholder = "(first name only)"
+	m.Suggest = func(value string) []string {
+		return []string{"A","B","C","D"}
+	}
+```
 
 ### selection
 
