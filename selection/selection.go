@@ -44,6 +44,7 @@ type Model struct {
 	help              help.Model
 	initialized       bool
 	selected          map[int]struct{}
+	all               bool
 }
 
 type KeyMap struct {
@@ -55,6 +56,7 @@ type KeyMap struct {
 	Select        key.Binding
 	Help          key.Binding
 	Enter         key.Binding
+	ToggleAll     key.Binding
 }
 
 // ShortHelp returns keybindings to be shown in the mini help view. It's part
@@ -68,7 +70,7 @@ func (k KeyMap) ShortHelp() []key.Binding {
 func (k KeyMap) FullHelp() [][]key.Binding {
 	return [][]key.Binding{
 		{k.SelectionUp, k.SelectionDown, k.Select},
-		{k.PagePrev, k.PageNext},
+		{k.PagePrev, k.PageNext, k.ToggleAll},
 		{k.Help, k.Quit},
 	}
 }
@@ -102,6 +104,10 @@ var DefaultKeyMap = KeyMap{
 	Help: key.NewBinding(
 		key.WithKeys("?"),
 		key.WithHelp("?", "help"),
+	),
+	ToggleAll: key.NewBinding(
+		key.WithKeys(tea.KeyTab.String()),
+		key.WithHelp("tab", "all/none"),
 	),
 }
 
@@ -167,7 +173,10 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.cursor--
 			}
 		case key.Matches(msg, m.KeyMap.SelectionDown):
-			if m.cursor < len(m.Choices)-1 {
+			start, end := m.paginator.GetSliceBounds(len(m.Choices))
+			// since results are paged, the maximum to iterate is the max number on the current page
+			maximum := end - start
+			if m.cursor < maximum-1 && maximum > 0 {
 				m.cursor++
 			}
 		case key.Matches(msg, m.KeyMap.PageNext, m.KeyMap.PagePrev):
@@ -184,6 +193,17 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 			if m.MaxSelections == 1 {
 				return m, tea.Quit
+			}
+		case key.Matches(msg, m.KeyMap.ToggleAll):
+			m.all = !m.all
+			if m.all {
+				for i, _ := range m.Choices {
+					m.selected[i] = struct{}{}
+				}
+			} else {
+				for i, _ := range m.Choices {
+					delete(m.selected, i)
+				}
 			}
 		}
 	}
@@ -244,7 +264,9 @@ func (m *Model) View() string {
 		b.WriteString(styleText(item))
 		b.WriteString("\n")
 	}
-	b.WriteString("  " + m.paginator.View())
+	if m.paginator.TotalPages > 1 {
+		b.WriteString("  " + m.paginator.View())
+	}
 	if !m.HideHelp {
 		helpView := m.help.View(m.KeyMap)
 		b.WriteString("\n\n")
