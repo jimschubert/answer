@@ -7,6 +7,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/jimschubert/answer/colors"
+	"github.com/jimschubert/answer/validate"
 )
 
 var (
@@ -16,7 +17,7 @@ var (
 type suggestions []string
 
 // ValidateFunc determines if the input string is valid, returning nil if valid or an error if invalid
-type ValidateFunc func(input string) error
+type ValidateFunc validate.Func
 
 // Styles holds relevant styles used for rendering
 // For an introduction to styling with Lip Gloss see:
