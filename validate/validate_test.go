@@ -5,6 +5,8 @@ import (
 	"strings"
 	"testing"
 	"unicode"
+
+	_ "github.com/charmbracelet/x/exp/teatest"
 )
 
 func TestNewValidation_all(t *testing.T) {

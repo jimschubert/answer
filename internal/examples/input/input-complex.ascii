@@ -242,7 +242,7 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 
 
 
@@ -258,7 +258,7 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 
 
 
@@ -274,7 +274,7 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: (first name only)
 
 
@@ -290,7 +290,7 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: (first name only)
 
 
@@ -306,7 +306,7 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: jam
 ✘ name must be uppercase
 
@@ -322,7 +322,7 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: jam
 ✘ name must be uppercase
 
@@ -338,7 +338,7 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: jam
 ✘ name must be uppercase
 
@@ -354,9 +354,9 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: (first name only)
-
+✘ min: 2 characters
 
 
 
@@ -370,9 +370,9 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: (first name only)
-
+✘ min: 2 characters
 
 
 
@@ -386,7 +386,55 @@
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
+? Please enter your name: Jameson
+✘ max: 8 characters
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./input-example -complex
+? Please enter your name: Jameson
+✘ max: 8 characters
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./input-example -complex
+? Please enter your name: Jameson
+✘ max: 8 characters
+
+
+
+
+
+
+
+
+
+
+
+
+────────────────────────────────────────────────────────────────────────────────
+> ./input-example -complex
 ? Please enter your name: James
 Suggestions:
 Jim
@@ -402,23 +450,7 @@ Jameson
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
-? Please enter your name: James
-Suggestions:
-Jim
-James
-Jameson
-
-
-
-
-
-
-
-
-
-────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: James
 Hi, James!
 >
@@ -434,7 +466,7 @@ Hi, James!
 
 
 ────────────────────────────────────────────────────────────────────────────────
-> ./input-example
+> ./input-example -complex
 ? Please enter your name: James
 Hi, James!
 >

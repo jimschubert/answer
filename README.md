@@ -28,6 +28,59 @@ See [internal/examples/input](internal/examples/input):
 
 ![](internal/examples/input/input.gif)
 
+#### Validations
+
+Simple validation functions are supported:
+
+```go
+m := input.New()
+m.Prompt = "Please enter your name:"
+m.Placeholder = "(first name only)"
+m.Validate = func(v string) error {
+    if v != "" && !unicode.IsUpper(rune(v[0])) {
+        return errors.New("name must be uppercase")
+    }
+    return nil
+}
+p := tea.NewProgram(&m)
+```
+
+Complex validations defined in the `validate` package are also supported. These functions chain together via `validate.Func`, and provide
+a common variadic argument for custom error messages (similar to testify's assert functions).
+
+Validation functions available include:
+
+* **MinLength**: defines the minimum rune count
+* **MaxLength**: defines the maximum rune count
+* **Matches**: defines a regex pattern to match
+* **Contains**: a wrapper around strings.Contains
+* **And**: pass a custom function to the validation chain, in which the chain and function are all evaluated (like `&&`)
+* **Or**: pass a custom function to the validation chain, in which the custom function is only evaluated if the preceding validation passes (like `||`)
+
+For example:
+
+```go
+m := input.New()
+m.Prompt = "Please enter your name:"
+m.Placeholder = "(first name only)"
+m.Validate = validate.NewValidation().
+    MinLength(2, "min: 2 characters").
+    MaxLength(5, "max: 8 characters").
+    And(func(input string) error {
+        for _, r := range input {
+            if !unicode.IsLetter(r) {
+                return errors.New("letters only")
+            }
+        }
+        return nil
+    }).
+    And(requireUppercase).
+    Build()
+p := tea.NewProgram(&m)
+```
+
+![](internal/examples/input/input-complex.gif)
+
 #### Suggestions
 
 Suggestions can be applied via a set of static data using one of the provided text suggestion functions, or via a custom function allowing retrieval from any location such as an external datasource.

@@ -103,6 +103,11 @@ func (fn Func) Contains(value string, msgAndArgs ...any) Func {
 	}
 }
 
+// Build returns the raw underlying functional type
+func (fn Func) Build() func(string) error {
+	return fn
+}
+
 func emptyValidateFunc(_ string) error {
 	return nil
 }
