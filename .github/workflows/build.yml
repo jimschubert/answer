@@ -28,7 +28,7 @@ jobs:
 
       - if: runner.os == 'Linux'
         name: golangci-lint
-        uses: golangci/golangci-lint-action@v3
+        uses: golangci/golangci-lint-action@v8
 
       - name: Build
         run: go build -v ./...
