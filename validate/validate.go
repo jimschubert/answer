@@ -21,6 +21,7 @@ func errMessage(args ...any) string {
 			return fmt.Sprintf("%+v", msg)
 		}
 	default:
+		// nolint:errcheck
 		return fmt.Sprintf(a[0].(string), a[1:]...)
 	}
 }

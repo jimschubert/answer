@@ -206,6 +206,7 @@ func (m *Model) View() string {
 		}
 	}
 
+	// nolint:staticcheck
 	if m.done == userQuit {
 		return b.String()
 	} else if m.done == userEnter {

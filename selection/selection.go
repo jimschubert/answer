@@ -197,11 +197,11 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case key.Matches(msg, m.KeyMap.ToggleAll):
 			m.all = !m.all
 			if m.all {
-				for i, _ := range m.Choices {
+				for i := range m.Choices {
 					m.selected[i] = struct{}{}
 				}
 			} else {
-				for i, _ := range m.Choices {
+				for i := range m.Choices {
 					delete(m.selected, i)
 				}
 			}

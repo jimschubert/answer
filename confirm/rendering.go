@@ -216,6 +216,7 @@ func (i *inputRenderer) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
+		// nolint:staticcheck
 		switch {
 		case msg.Type == tea.KeyEnter:
 			switch k := strings.ToLower(i.text.Value()); {
